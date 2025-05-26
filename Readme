@@ -1,0 +1,7 @@
+Plan:
+Read a video into frames, at a specific time interval
+Recognize the line in 1 image, at a high threshold
+For the next frame, lower threshold if needed until at least 90% of the points show,
+in a reasonable range
+
+Map pixels to position
