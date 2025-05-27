@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b11f761-ecb5-4d81-94e4-0ed32219a393" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Vortices.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FindVortex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Readme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fits.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/physrev.mlpstyle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    <list default="true" id="4b11f761-ecb5-4d81-94e4-0ed32219a393" name="Changes" comment="Images">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FindVortex.py" beforeDir="false" afterPath="$PROJECT_DIR$/FindVortex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vortex.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Vortex.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/avg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropped.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/cropped.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fits.py" beforeDir="false" afterPath="$PROJECT_DIR$/fits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/only_edges.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/only_edges.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Find Vortices.executor&quot;: &quot;Run&quot;,
-    &quot;Python.FindVortex.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Physics/Year 2/Lab/Advanced Lab 2B/Vortices/FindVortex.py&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Find Vortices.executor": "Run",
+    "Python.FindVortex.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Physics/Year 2/Lab/Advanced Lab 2B/Vortices/FindVortex.py"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Find Vortices" type="PythonConfigurationType" factoryName="Python">
       <module name="Vortices" />
@@ -91,7 +88,29 @@
       <option name="presentableId" value="Default" />
       <updated>1747202415010</updated>
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <option name="closed" value="true" />
+      <created>1748271786125</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748271786125</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Images">
+      <option name="closed" value="true" />
+      <created>1748271851192</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748271851192</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <MESSAGE value="Images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -113,8 +132,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FindVortex.py</url>
-          <line>378</line>
+          <line>402</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FindVortex.py</url>
+          <line>374</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FindVortex.py</url>
+          <line>318</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -60,6 +60,8 @@ def create_edges_image(img):
         #     continue
         # print(non_zeros)
         # break
+        if not len(non_zeros):
+            continue
         left_index = non_zeros[0]
         right_index = non_zeros[-1]
         left_index_found = False
@@ -88,3 +90,9 @@ def get_func_from_image(image):
     # print(x)
     # print(y)
     return x, y
+
+
+def black_out_area(image, x_start, x_end, y_start, y_end):
+    output = image
+    output[y_start: y_end, x_start: x_end] = 0
+    return output

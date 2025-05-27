@@ -335,7 +335,7 @@ def create_diff_image(frame):
 
 # im = cv2.imread(r"C:\Physics\Year 2\Lab\Advanced Lab 2B\Image tests\Test 4.jpg")
 # create_diff_image(im)
-# cap = cv2.VideoCapture(r"C:\Physics\Year 2\Lab\Advanced Lab 2B\Image tests\Video Test 3.mp4")
+# cap = cv2.VideoCapture(r"C:\Physics\Year 2\Lab\Advanced Lab 2B\21.05\PXL_20250521_055911851.mp4")
 # i = 0
 # while cap.isOpened():
 #     ret, frame = cap.read()
@@ -344,37 +344,61 @@ def create_diff_image(frame):
 #     i += 1
 #     # if i != 800:
 #     #     continue
-#     # cv2.imwrite(fr'./Frame_{800}.jpg', frame)
+#     cv2.imwrite(fr'./Outputs/Frame_{i}.jpg', frame)
 #     create_diff_image(frame)
 # cap.release()
 
-# image_list = [cv2.imread(fr'./Outputs/Frame_{i}.jpg', cv2.IMREAD_GRAYSCALE) for i in range(1,15)]
-# avg_img = utils.average_images(image_list)
-# cv2.imwrite("./avg.jpg", avg_img)
-avg_img = cv2.imread("./only_edges_manual.jpg", cv2.IMREAD_GRAYSCALE)
-[height, width] = avg_img.shape
-cropped = avg_img
-# cropped = avg_img[int(height*0.37):int(height*0.7), int(width*0.1):int(width*0.9)]
-# cv2.imwrite("./cropped.jpg", cropped)
-only_edges = utils.create_edges_image(cropped)
-cv2.imwrite("./only_edges.jpg", only_edges)
-x, y = utils.get_func_from_image(only_edges)
-new_x = []
-new_y = []
+for i in range(1, 2601):
+    if i % 15:
+        continue
+    image_list = [cv2.imread(fr'./Outputs/Frame_{i+j}.jpg', cv2.IMREAD_GRAYSCALE) for j in range(0,15)]
+    avg_img = utils.average_images(image_list)
+    avg_img[avg_img > 150] = 0
+    cv2.imwrite("./avg.jpg", avg_img)
+    # avg_img = cv2.imread("./only_edges_manual.jpg", cv2.IMREAD_GRAYSCALE)
+    # cropped = avg_img
+    rotated = cv2.rotate(avg_img, cv2.ROTATE_90_CLOCKWISE)
+    [height, width] = rotated.shape
+    cropped = rotated[int(height*0.37):int(height*0.7), int(width*0.12):int(width*0.88)]
+    # cropped = rotated[int(height*0.7): int(height*1.4), int(width * 0.06):int(width * 0.45)]
+    cv2.imwrite("./cropped.jpg", cropped)
+    [height, width] = cropped.shape
+    # blacked_out = cropped
+    mask = cv2.imread("mask.jpg", cv2.IMREAD_GRAYSCALE)
+    blacked_out = cv2.bitwise_and(cropped, cropped, mask=mask)
+    # blacked_out = utils.black_out_area(blacked_out, 280, width, height-200, height)
+    # blacked_out = utils.black_out_area(blacked_out, 300, width, height - 260, height)
+    only_edges = utils.create_edges_image(blacked_out)
+    cv2.imwrite("./only_edges.jpg", only_edges)
+    # plt.imshow(cropped, cmap="gray")
+    # plt.show()
+    x, y = utils.get_func_from_image(only_edges)
+    left_x = []
+    left_y = []
+    right_x = []
+    right_y = []
 
-# for i in range(len(x)):
-#     # if x[i] >= 200 or (x[i] <= 40):
-#     if x[i] <= 40:
-#         continue
-#     new_x.append(x[i])
-#     new_y.append(y[i])
+    for j in range(len(x)):
+        if x[j] <= 40:
+            continue
+        if x[j] >= (max(x) + min(x))/2:
+            right_x.append(x[j])
+            right_y.append(y[j])
+        else:
+            left_x.append(x[j])
+            left_y.append(y[j])
 
 
-# plt.scatter(x, y)
-# plt.title("Vortex")
-# plt.show()
-fits.get_fit(x, y)
-
-# manual = cv2.imread("./only_edges_manual.jpg", cv2.IMREAD_GRAYSCALE)
-# x, y = utils.get_func_from_image(manual)
-# fits.get_fit(x, y)
+    # plt.scatter(x, y)
+    # plt.title("Vortex")
+    # plt.show()
+    # fits.get_fit(new_x, new_y)
+    fits.get_fit(right_x, right_y, side="right")
+    fits.get_fit(left_x, left_y, side="left")
+    plt.scatter(x, y)
+    plt.savefig(fr"./Outputs/Figures/{i} to {i+14}")
+    # plt.show()
+    plt.clf()
+    # manual = cv2.imread("./only_edges_manual.jpg", cv2.IMREAD_GRAYSCALE)
+    # x, y = utils.get_func_from_image(manual)
+    # fits.get_fit(x, y)
