@@ -5,12 +5,36 @@ import matplotlib.pyplot as plt
 # plt.style.use("physrev.mlpstyle")
 
 
+def rankine(r, w, r_0, g=-9.8):
+    r = np.asarray(r)
+    return np.where(
+        np.abs(r) < r_0,
+        w**2 * r**2 / (2 * g),
+
+        (w**2 * r_0**2 / g) - (w**2 * r_0**4) / (2 * g * r**2)
+    )
+
+
+def rankine_in_cylinder(r, w, r_p, r_max, H_0=0.6, g=-9.8):
+    r = np.asarray(r)
+    return np.where(
+        np.abs(r) < r_p,
+        H_0 - ((w ** 2 * r_p ** 2) / g) + ((w ** 2 * r_p ** 4) / (g * r_max ** 2) * (3 / 4 + np.log(r_max / r_p))
+                                           + w ** 2 * r ** 2 / (2*g)),
+        H_0 - ((w ** 2 * r_p ** 2) / g) + ((w ** 2 * r_p ** 4) / (g * r_max ** 2)) * (3 / 4 + np.log(r_max / r_p))
+        + (w ** 2 * r_p ** 2 / g) - (w ** 2 * r_p ** 4) / (2 * g * r ** 2)
+    )
+
+
+
+
 def hyperbola_parabola(x, a, b, c, d):
     return a / (x + c) + b * x**2 + d
 
 
 def hyperbola(x, a, b, c):
     return a/(x-b)**2 + c
+
 
 def parabola(x, a, b, c):
     return a * (x + b)**2 + c

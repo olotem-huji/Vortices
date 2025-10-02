@@ -21,26 +21,26 @@ def average_images(image_list):
 
 
 
-def create_diff_image(frame, thresh_value = 5):
-    # corrected = crop_image(frame)
-    corrected = frame
-    gray = cv2.cvtColor(corrected, cv2.COLOR_BGR2GRAY)
-    diff = cv2.absdiff(gray[:, 1:], gray[:, :-1])
-    _, binary = cv2.threshold(diff, thresh_value, 200, cv2.THRESH_BINARY)
-    denoised = binary
-    # denoised = cv2.medianBlur(binary, 5)
-    # denoised = cv2.GaussianBlur(denoised, (5, 5), 0)
-    # denoised = cv2.bilateralFilter(denoised, 9, 75, 75)
-
-    global COUNTER
-    # if COUNTER % 50 == 0:
-    cv2.imwrite(fr'./Outputs/Frame_{COUNTER}.jpg', denoised)
-    vortex = denoised
-    # vortex, _ = find_fuzzy_vertical_path(denoised, direction="right")
-    # vortex = filter_lines_by_width(denoised)
-    cv2.imwrite("./Vortex.jpg", vortex)
-    print(COUNTER)
-    COUNTER += 1
+# def create_diff_image(frame, thresh_value = 5):
+#     # corrected = crop_image(frame)
+#     corrected = frame
+#     gray = cv2.cvtColor(corrected, cv2.COLOR_BGR2GRAY)
+#     diff = cv2.absdiff(gray[:, 1:], gray[:, :-1])
+#     _, binary = cv2.threshold(diff, thresh_value, 200, cv2.THRESH_BINARY)
+#     denoised = binary
+#     # denoised = cv2.medianBlur(binary, 5)
+#     # denoised = cv2.GaussianBlur(denoised, (5, 5), 0)
+#     # denoised = cv2.bilateralFilter(denoised, 9, 75, 75)
+#
+#     global COUNTER
+#     # if COUNTER % 50 == 0:
+#     cv2.imwrite(fr'./Outputs/Frame_{COUNTER}.jpg', denoised)
+#     vortex = denoised
+#     # vortex, _ = find_fuzzy_vertical_path(denoised, direction="right")
+#     # vortex = filter_lines_by_width(denoised)
+#     cv2.imwrite("./Vortex.jpg", vortex)
+#     print(COUNTER)
+#     COUNTER += 1
 
 
 def create_edges_image(img):
