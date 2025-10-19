@@ -22,15 +22,16 @@ for shape in data["shapes"]:
         points = points[:-IGNORE_LAST]
 
     # Extract coordinates
-    x = [p[0] for p in points]
-    y = [p[1] for p in points]
+    center_r = (points[0][0] + points[-1][0]) / 2
+    r = [p[0] - center_r for p in points]
+    z = [p[1] for p in points]
 
     # Plot as open polyline (no closing)
-    plt.plot(x, y, label=label)
+    plt.plot(r, z, label=label)
 
 plt.gca().invert_yaxis()  # Match LabelMe coordinate system
-plt.xlabel("x")
-plt.ylabel("y")
+plt.xlabel("r")
+plt.ylabel("z")
 plt.title("Open Polygon from LabelMe")
 plt.legend()
 plt.axis("equal")
