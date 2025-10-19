@@ -5,7 +5,6 @@ Extract Video Frames - Extract frames from a video and save them to a directory
 
 import cv2
 import os
-import argparse
 from pathlib import Path
 
 
@@ -139,12 +138,12 @@ if __name__ == "__main__":
 
     # Example 2: Original settings
     extract_frames(
-        video_path=r"C:\Physics\Year 2\Lab\Advanced Lab 2B\21.05\mid_600 RPM.mp4",
+        video_path=r"C:\Physics\Year 2\Lab\Advanced Lab 2B\21.05\long_337 RPM.mp4",
         output_dir="frames_all",
         frame_interval=1,
         start_time=0,
         end_time=None,
         image_format="jpg",
-        grayscale=True,
+        grayscale=False,
         rotate=90
     )
